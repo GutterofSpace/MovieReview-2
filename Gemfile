@@ -9,7 +9,6 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -36,8 +35,6 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'b
 gem "paperclip", "~> 5.0.0"
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'searchkick', '~> 1.1', '>= 1.1.2'
-gem 'pg'
-gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -50,6 +47,11 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'sqlite3'
+end
+
+group :production do
+	gem 'pg' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
