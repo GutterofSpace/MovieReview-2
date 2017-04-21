@@ -32,10 +32,19 @@
      <td> <strong>Genre:</strong></td>
     <td>  <%= @movie.genre %></td>
     </tr>
+    <tr>
+     <td> <strong>Tag:</strong></td>
+    <td>  <%= @movie.tag %></td>
+    </tr>
+    <tr>
+     <td> <strong>Movie Crew:</strong></td>
+    <td>  <%= @movie.crew %></td>
+    </tr>
     </tbody>
     </table>
-    <%= link_to "Write a Review", new_movie_review_path(@movie) %>
-
+    <%= link_to 'Edit', edit_movie_path(@movie) %> |
+    <%= link_to 'Back', movies_path %> |
+    <%= link_to 'Delete Movie', movies_path, method: :delete, data: {confirm: "Are you sure?" } %>
     </div> 
     </div>
     <div class="col-md-7 cold-md-offset-1" >
@@ -56,10 +65,7 @@
     </div>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %> |
-<%= link_to 'Delete Movie', movies_path, method: :delete, data: {confirm: "Are you sure?" } %>
+<%= link_to "Write a Review", new_movie_review_path(@movie) %>
 <script>
     $('.star-rating').raty({
       path: '/assets/',

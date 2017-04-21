@@ -1,21 +1,21 @@
-<nav class="navbar navbar-dark bg-inverse" role="navigation">
+<nav class="navbar navbar-dark navbar-custom" role="navigation">
   <div class="container">
     <div class="navbar-header">
-     <a class = "navbar-brand" href = "/movies">Movie Reviews</a>
+     <a class = "navbar-brand" href = "/movies">
+     Movie Reviews
+     </a>
    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div>
-      <ul class="nav navbar-nav">
+      <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li><%= link_to "Add Movie", new_movie_path, class: "active" %></li>
+          <li ><%= link_to "Add Movie", new_movie_path, class: "active" %></li>
           <li><%= link_to "Account", edit_user_registration_path %></li>
         <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path, class: "active" %></li>
-          <li><%= link_to "Sign In", new_user_session_path, class: "active" %></li>
+          <li><%= link_to "Login", new_user_session_path, class: "active" %></li>
+
         <% end %>
       </ul>
-      <%= form_tag search_movies_path, method: :get, class: "form-inline pull-xs-right", role: "search" do %>
+      <%= form_tag search_movies_path, method: :get, class: "form-inline", role: "search" do %>
         <p>
           <%= text_field_tag :search, params[:search], class: "form-control" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
